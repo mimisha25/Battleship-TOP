@@ -7,5 +7,8 @@ export class Ship {
 
     }
 
+    hit() {
+        this.hits += 1;
 
+    }
 }
