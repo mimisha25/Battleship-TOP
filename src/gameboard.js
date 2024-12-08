@@ -8,4 +8,16 @@ export class Gameboard {
         this.isComputer = isComputer;
     }
 
+    createBoard() {
+        const board = [];
+        for (let row = 0; row < 10; row++) {
+            const rowCells = [];
+            for (let col = 0; col < 10; col++) {
+                rowCells.push({ hit: false, ship: null });
+            }
+            board.push(rowCells);
+        }
+        return board;
+    }
+
 }
