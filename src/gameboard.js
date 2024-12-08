@@ -20,4 +20,13 @@ export class Gameboard {
         return board;
     }
 
+    setShips(shipArray) {
+        this.ships = shipArray;
+        shipArray.forEach(ship => {
+            ship.coordinates.forEach(coord => {
+                this.board[coord.row][coord.col].ship = ship;
+            });
+        });
+    }
+
 }
