@@ -29,4 +29,19 @@ export class Gameboard {
         });
     }
 
+    receiveAttack(x, y) {
+        const cell = this.board[x][y];
+        if (cell.hit) return null;
+        cell.hit = true;
+        if (cell.ship) {
+            cell.ship.hit();
+            if (cell.ship.isSunk()) console.log(`A ship has been sunk at [${x}, ${y}]`);
+            return "hit";
+        } else {
+            this.missedAttacks.push([x, y]);
+            console.log(`Miss at [${x}, ${y}]`);
+            return "miss";
+        }
+    }
+
 }
