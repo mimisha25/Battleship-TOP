@@ -50,4 +50,18 @@ describe('Player class', () => {
         expect(gameboard2.missedAttacks).toContainEqual([1, 1]);
     });
 
+    test("should not allow the same cell to be attacked twice", () => {
+        const mockShip = {
+            hit: jest.fn(),
+            isSunk: jest.fn().mockReturnValue(false)
+        };
+        gameboard2.setShips([{ coordinates: [{ row: 0, col: 0 }] }]);
+        gameboard2.board[0][0].ship = mockShip;
+        player1.attack(player2, 0, 0);
+        const secondAttackResult = player1.attack(player2, 0, 0);
+        expect(secondAttackResult).toBe(null);
+        expect(gameboard2.board[0][0].hit).toBe(true);
+        expect(mockShip.hit).toHaveBeenCalledTimes(1);
+    })
+
 });
