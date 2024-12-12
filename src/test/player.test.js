@@ -17,6 +17,17 @@ describe('Player class', () => {
         expect(player1.gameboard).toBe(gameboard1);
     });
 
-
+    test("should allow a player to attack an opponent", () => {
+        const mockShip = {
+            hit: jest.fn(),
+            isSunk: jest.fn().mockReturnValue(false)
+        };
+        gameboard2.setShips([{ coordinates: [{ row: 0, col: 0 }] }]);
+        gameboard2.board[0][0].ship = mockShip;
+        const attackResult = player1.attack(player2, 0, 0);
+        expect(attackResult).toBe("hit");
+        expect(mockShip.hit).toHaveBeenCalled();
+        expect(gameboard2.board[0][0].hit).toBe(true);
+    });
 
 });
