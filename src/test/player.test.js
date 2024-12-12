@@ -35,6 +35,11 @@ describe('Player class', () => {
         const attackResult = player1.attack(player2, 0, 0);
         expect(attackResult).toBe("miss");
         expect(gameboard2.missedAttacks).toContainEqual([0, 0]);
-    })
+    });
+
+    test("should throw an error for invalid coordinates", () => {
+        expect(() => player1.attack(player2, -1, 0)).toThrow("Coordinates out of bounds!");
+        expect(() => player1.attack(player2, 0, 10)).toThrow("Coordinates out of bounds!");
+    });
 
 });
