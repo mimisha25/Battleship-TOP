@@ -42,4 +42,12 @@ describe('Player class', () => {
         expect(() => player1.attack(player2, 0, 10)).toThrow("Coordinates out of bounds!");
     });
 
+    test("should track missed attacks properly", () => {
+        gameboard2.setShips([]);
+        player1.attack(player2, 0, 0);
+        player1.attack(player2, 1, 1);
+        expect(gameboard2.missedAttacks).toContainEqual([0, 0]);
+        expect(gameboard2.missedAttacks).toContainEqual([1, 1]);
+    });
+
 });
