@@ -30,4 +30,11 @@ describe('Player class', () => {
         expect(gameboard2.board[0][0].hit).toBe(true);
     });
 
+    test("should return miss if attacking an empty cell", () => {
+        gameboard2.setShips([]);
+        const attackResult = player1.attack(player2, 0, 0);
+        expect(attackResult).toBe("miss");
+        expect(gameboard2.missedAttacks).toContainEqual([0, 0]);
+    })
+
 });
