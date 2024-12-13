@@ -31,5 +31,7 @@ export class ComputerPlayer extends Player {
         }, 2000);
     };
 
-
+    attack(opponent) {
+        return this.randomAttack(opponent);
+    }
 }
