@@ -1,5 +1,6 @@
-
-function createGameboardElement(playerId, isComputer = false) {
+import { handleDragOver } from "./handleDragOver";
+import { handleDrop } from "./handleDrop";
+export function createGameboardElement(playerId, isComputer = false) {
     const gameboardContainer = document.getElementById(playerId);
     const gameboard = document.createElement("div");
     gameboard.classList.add("gameboard");
