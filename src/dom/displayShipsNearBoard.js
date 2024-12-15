@@ -1,4 +1,6 @@
-function displayShipsNearBoard() {
+import { handleDragStart } from "./handleDragStart";
+import { handleDragEnd } from "./handleDragEnd";
+export function displayShipsNearBoard() {
     const shipsContainer = document.getElementById("ships-container");
     const shipSizes = [1, 2, 3, 4, 5];
     const h3 = document.createElement("h3");
