@@ -1,3 +1,6 @@
+import { canPlaceShip } from "./canPlaceShip.js"
+import { currentOrientation } from "./orientation.js";
+import { afterDrop } from "./afterDrop.js";
 export let playerShips = [];
 export function handleDrop(event, cell) {
     event.preventDefault();
