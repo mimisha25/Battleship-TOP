@@ -39,4 +39,22 @@ describe('createGameboardElement', () => {
         addEventListenerSpy.mockRestore();
     });
 
+    test("should not attach dragover and drop event listeners for computer board", () => {
+        const addEventListenerSpy = jest.spyOn(HTMLElement.prototype, "addEventListener");
+        createGameboardElement("player1", true);
+        const cells = gameboardContainer.querySelectorAll(".cell");
+        cells.forEach(cell => {
+            expect(addEventListenerSpy).not.toHaveBeenCalledWith("dragover", expect.any(Function));
+            expect(addEventListenerSpy).not.toHaveBeenCalledWith("drop", expect.any(Function));
+        });
+        addEventListenerSpy.mockRestore();
+    });
+
+    test("should add computer-cell class for the computer board cells", () => {
+        createGameboardElement("player1", true);
+        const cells = gameboardContainer.querySelectorAll(".cell");
+        cells.forEach(cell => {
+            expect(cell.classList.contains("computer-cell")).toBe(true);
+        });
+    });
 });
