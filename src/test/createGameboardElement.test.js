@@ -28,4 +28,15 @@ describe('createGameboardElement', () => {
         expect(cells.length).toBe(100);
     });
 
+    test("should attach dragover and drop event listeners for player board", () => {
+        const addEventListenerSpy = jest.spyOn(HTMLElement.prototype, "addEventListener");
+        createGameboardElement("player1");
+        const cells = gameboardContainer.querySelectorAll(".cell");
+        cells.forEach(cell => {
+            expect(addEventListenerSpy).toHaveBeenCalledWith("dragover", expect.any(Function));
+            expect(addEventListenerSpy).toHaveBeenCalledWith("drop", expect.any(Function));
+        });
+        addEventListenerSpy.mockRestore();
+    });
+
 });
