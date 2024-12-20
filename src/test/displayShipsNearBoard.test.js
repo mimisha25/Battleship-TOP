@@ -40,4 +40,28 @@ describe('displayShipsNearBoard', () => {
         dragStartSpy.mockRestore();
         dragEndSpy.mockRestore();
     });
+
+    test("should set correct data attributes on ship cells", () => {
+        displayShipsNearBoard();
+        const shipSizes = [1, 2, 3, 4, 5];
+        const shipCells = shipsContainer.querySelectorAll(".ship-cell");
+        let currentShipIndex = 0;
+        let currentShipSize = shipSizes[currentShipIndex];
+        let currentShipCellCount = 0;
+        let expectedShipIndex = 0;
+
+        shipCells.forEach((cell, index) => {
+            const shipSize = parseInt(cell.dataset.shipSize, 10);
+            const shipIndex = parseInt(cell.dataset.shipIndex, 10);
+            expect(shipSize).toBe(currentShipSize);
+            expect(shipIndex).toBe(expectedShipIndex);
+            currentShipCellCount++;
+            if (currentShipCellCount === currentShipSize) {
+                currentShipIndex += 1;
+                currentShipSize = shipSizes[currentShipIndex] || currentShipSize;
+                expectedShipIndex += 1;
+                currentShipCellCount = 0;
+            }
+        });
+    });
 });
