@@ -1,5 +1,5 @@
 export function handleDragStart(event, ship) {
-    event.dataTransfer.setData("text/plain");
+    event.dataTransfer.setData("text/plain", ship.dataset.shipSize);
     event.target.classList.add("dragging");
     event.target.ship = ship;
     const shipClone = ship.cloneNode(true);
