@@ -25,4 +25,19 @@ describe('displayShipsNearBoard', () => {
             expect(shipCells.length).toBe(index + 1);
         });
     });
+
+    test("should attach dragstart and dragend event listeners to ship cells", () => {
+        displayShipsNearBoard();
+        const shipCells = shipsContainer.querySelectorAll(".ship-cell");
+        const dragStartSpy = jest.spyOn(handleDragStartModule, "handleDragStart");
+        const dragEndSpy = jest.spyOn(handleDragEndModule, "handleDragEnd");
+        shipCells.forEach(cell => {
+            cell.dispatchEvent(new Event("dragstart"));
+            cell.dispatchEvent(new Event("dragend"));
+        });
+        expect(dragStartSpy).toHaveBeenCalledTimes(shipCells.length);
+        expect(dragEndSpy).toHaveBeenCalledTimes(shipCells.length);
+        dragStartSpy.mockRestore();
+        dragEndSpy.mockRestore();
+    });
 });
