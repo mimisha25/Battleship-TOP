@@ -17,4 +17,9 @@ describe("handleDragStart", () => {
             dataTransfer
         };
     });
+
+    test("should set the correct data on the dataTransfer object", () => {
+        handleDragStart(event, ship);
+        expect(dataTransfer.setData).toHaveBeenCalledWith("text/plain", "3");
+    });
 })
