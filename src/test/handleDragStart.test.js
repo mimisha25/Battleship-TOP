@@ -27,4 +27,10 @@ describe("handleDragStart", () => {
         handleDragStart(event, ship);
         expect(event.target.classList.contains("dragging")).toBe(true);
     });
+
+    test("should store the ship in the target element", () => {
+        handleDragStart(event, ship);
+        expect(event.target.ship).toBe(ship);
+    });
+
 })
