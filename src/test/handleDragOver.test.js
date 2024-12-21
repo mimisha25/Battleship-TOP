@@ -17,4 +17,9 @@ describe("handleDragOver", () => {
         handleDragOver(event, cell);
         expect(cell.classList.contains("drop-target")).toBe(true);
     });
+
+    test("should not modify the other classes of the cell", () => {
+        handleDragOver(event, cell);
+        expect(cell.classList.contains("some-class")).toBe(true);
+    })
 })
