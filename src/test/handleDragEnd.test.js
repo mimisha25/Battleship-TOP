@@ -26,4 +26,9 @@ describe("handleDragEnd", () => {
         handleDragEnd(event);
         expect(document.body.contains(ship)).toBe(false);
     });
+
+    test("should remove the dragging class from the target element", () => {
+        handleDragEnd(event);
+        expect(target.classList.contains("dragging")).toBe(false);
+    });
 })
