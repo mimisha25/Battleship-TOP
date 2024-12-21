@@ -33,4 +33,12 @@ describe("handleDragStart", () => {
         expect(event.target.ship).toBe(ship);
     });
 
+    test("should create a clone of the ship and append it to the document body", () => {
+        handleDragStart(event, ship);
+        const shipClone = event.target.shipClone;
+        expect(shipClone).not.toBeNull();
+        expect(shipClone.classList.contains("dragging-ship")).toBe(true);
+        expect(document.body.contains(shipClone)).toBe(true);
+    });
+
 })
