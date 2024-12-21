@@ -37,4 +37,10 @@ describe("handleDragEnd", () => {
         handleDragEnd(event);
         expect(document.body.contains(shipClone)).toBe(true);
     });
+
+    test("should not attempt to remove ship if it is not set", () => {
+        target.ship = null;
+        handleDragEnd(event);
+        expect(document.body.contains(ship)).toBe(true);
+    });
 })
