@@ -41,4 +41,9 @@ describe("handleDragStart", () => {
         expect(document.body.contains(shipClone)).toBe(true);
     });
 
+    test("should set the drag image to the shipClone", () => {
+        handleDragStart(event, ship);
+        const shipClone = event.target.shipClone;
+        expect(dataTransfer.setDragImage).toHaveBeenCalledWith(shipClone, 0, 0);
+    });
 })
