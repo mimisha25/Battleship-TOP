@@ -22,4 +22,9 @@ describe("handleDragStart", () => {
         handleDragStart(event, ship);
         expect(dataTransfer.setData).toHaveBeenCalledWith("text/plain", "3");
     });
+
+    test("should add the dragging class to the target element", () => {
+        handleDragStart(event, ship);
+        expect(event.target.classList.contains("dragging")).toBe(true);
+    });
 })
