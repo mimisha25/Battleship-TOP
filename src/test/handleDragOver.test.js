@@ -12,4 +12,9 @@ describe("handleDragOver", () => {
         handleDragOver(event, cell);
         expect(event.preventDefault).toHaveBeenCalled();
     });
+
+    test("should add drop-target class to the cell element", () => {
+        handleDragOver(event, cell);
+        expect(cell.classList.contains("drop-target")).toBe(true);
+    });
 })
