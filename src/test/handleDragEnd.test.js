@@ -31,4 +31,10 @@ describe("handleDragEnd", () => {
         handleDragEnd(event);
         expect(target.classList.contains("dragging")).toBe(false);
     });
+
+    test("should not attempt to remove shipClone if it is not set", () => {
+        target.shipClone = null;
+        handleDragEnd(event);
+        expect(document.body.contains(shipClone)).toBe(true);
+    });
 })
