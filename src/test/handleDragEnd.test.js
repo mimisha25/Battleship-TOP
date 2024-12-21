@@ -21,4 +21,9 @@ describe("handleDragEnd", () => {
         handleDragEnd(event);
         expect(document.body.contains(shipClone)).toBe(false);
     });
+
+    test("should remove the ship from its initial position", () => {
+        handleDragEnd(event);
+        expect(document.body.contains(ship)).toBe(false);
+    });
 })
