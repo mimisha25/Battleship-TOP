@@ -66,7 +66,8 @@ describe('handleDrop', () => {
         expect(targetCell3.classList.contains('ship-placement')).toBe(true);
     });
 
-    test("", () => {
-
-    })
+    test("should call afterDrop with playerShips", () => {
+        handleDrop(event, cell);
+        expect(afterDrop).toHaveBeenCalledWith(playerShips);
+    });
 });
