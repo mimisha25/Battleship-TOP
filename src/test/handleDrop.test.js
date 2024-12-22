@@ -48,4 +48,11 @@ describe('handleDrop', () => {
         handleDrop(event, cell);
         expect(event.preventDefault).toHaveBeenCalled();
     });
+
+    test("should place the ship and update playerShips", () => {
+        handleDrop(event, cell);
+        expect(playerShips).toHaveLength(1);
+        expect(playerShips[0].size).toBe(3);
+        expect(playerShips[0].coordinates).toEqual([{ row: 2, col: 3 }, { row: 2, col: 4 }, { row: 2, col: 5 }]);
+    });
 });
