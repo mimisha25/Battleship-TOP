@@ -76,4 +76,9 @@ describe('handleDrop', () => {
         handleDrop(event, cell);
         expect(playerShips).toHaveLength(0);
     });
+
+    test("should add the drop-target class when drop is handled", () => {
+        handleDrop(event, cell);
+        expect(cell.classList.contains("drop-target")).toBe(false);
+    });
 });
