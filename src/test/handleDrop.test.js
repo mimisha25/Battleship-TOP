@@ -55,4 +55,18 @@ describe('handleDrop', () => {
         expect(playerShips[0].size).toBe(3);
         expect(playerShips[0].coordinates).toEqual([{ row: 2, col: 3 }, { row: 2, col: 4 }, { row: 2, col: 5 }]);
     });
+
+    test("should add the ship-placement class to the correct cells for horizontal placement", () => {
+        handleDrop(event, cell);
+        const targetCell1 = document.querySelector(`[data-row="2"][data-col="3"]`);
+        const targetCell2 = document.querySelector('[data-row="2"][data-col="4"]');
+        const targetCell3 = document.querySelector('[data-row="2"][data-col="5"]');
+        expect(targetCell1.classList.contains("ship-placement")).toBe(true);
+        expect(targetCell2.classList.contains('ship-placement')).toBe(true);
+        expect(targetCell3.classList.contains('ship-placement')).toBe(true);
+    });
+
+    test("", () => {
+
+    })
 });
