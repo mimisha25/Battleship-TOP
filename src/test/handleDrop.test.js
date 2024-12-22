@@ -70,4 +70,10 @@ describe('handleDrop', () => {
         handleDrop(event, cell);
         expect(afterDrop).toHaveBeenCalledWith(playerShips);
     });
+
+    test("should not place the ship if it cannot be placed", () => {
+        canPlaceShip.mockReturnValue(false);
+        handleDrop(event, cell);
+        expect(playerShips).toHaveLength(0);
+    });
 });
