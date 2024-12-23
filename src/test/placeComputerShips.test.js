@@ -30,4 +30,20 @@ describe("placeComputerShips", () => {
             expect.objectContaining({ size: 5 })
         ]))
     });
+
+    test("should correctly place ships with different orientations", () => {
+        canPlaceComputerShip.mockReturnValue(true);
+        const mockCell = { classList: { add: jest.fn() } };
+        document.querySelector.mockReturnValue(mockCell);
+        placeComputerShips();
+        const placedShips = setComputerShips.mock.calls[0][0];
+        placedShips.forEach(ship => {
+            if (ship.orientation === "horizontal") expect(ship.coordinates[0].row).toBe(ship.coordinates[ship.coordinates.length - 1].col);
+            else if (ship.orientation === "vertical") expect(ship.coordinates[0].col).toBe(ship.coordinates[ship.coordinates.length - 1].col);
+        });
+    });
+
+    test("", () => {
+
+    });
 });
