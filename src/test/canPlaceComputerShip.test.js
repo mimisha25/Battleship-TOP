@@ -22,4 +22,13 @@ describe("", () => {
         expect(canPlace).toBe(true);
     });
 
+    test("should return false if a ship overlaps with an already placed ship horizontally", () => {
+        placedShips.push({ row: 1, col: 1, size: 3, orientation: "horizontal" });
+        document.querySelector(`#computer-board [data-row="1"][data-col="1"]`).classList.add('ship-placement');
+        document.querySelector(`#computer-board [data-row="1"][data-col="2"]`).classList.add('ship-placement');
+        document.querySelector(`#computer-board [data-row="1"][data-col="3"]`).classList.add('ship-placement');
+        const canPlace = canPlaceComputerShip(1, 2, 3, "horizontal", placedShips);
+        expect(canPlace).toBe(false);
+    });
+
 })
