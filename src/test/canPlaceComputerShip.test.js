@@ -31,4 +31,13 @@ describe("", () => {
         expect(canPlace).toBe(false);
     });
 
+    test("should return true if a ship can be placed vertically without overlap", () => {
+        placedShips.push({ row: 1, col: 1, size: 3, orientation: "vertical" });
+        const canPlace = canPlaceComputerShip(4, 1, 3, "vertical", placedShips);
+        expect(canPlace).toBe(true);
+    });
+
+    test("", () => {
+
+    });
 })
