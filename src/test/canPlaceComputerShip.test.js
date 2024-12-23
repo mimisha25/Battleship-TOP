@@ -50,4 +50,9 @@ describe("", () => {
         const canPlace = canPlaceComputerShip(0, 8, 3, "horizontal", placedShips);
         expect(canPlace).toBe(false);
     });
+
+    test("should return false if a ship goes out of bounds vertically", () => {
+        const canPlace = canPlaceComputerShip(8, 0, 3, "vertical", placedShips);
+        expect(canPlace).toBe(false);
+    });
 })
