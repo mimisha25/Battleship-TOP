@@ -37,7 +37,12 @@ describe("", () => {
         expect(canPlace).toBe(true);
     });
 
-    test("", () => {
-
+    test("should return false if a ship overlaps with an already placed ship vertically", () => {
+        placedShips.push({ row: 1, col: 1, size: 3, orientation: "vertical" });
+        document.querySelector(`#computer-board [data-row="1"][data-col="1"]`).classList.add('ship-placement');
+        document.querySelector(`#computer-board [data-row="2"][data-col="1"]`).classList.add('ship-placement');
+        document.querySelector(`#computer-board [data-row="3"][data-col="1"]`).classList.add('ship-placement');
+        const canPlace = canPlaceComputerShip(2, 1, 3, "vertical", placedShips);
+        expect(canPlace).toBe(false);
     });
 })
