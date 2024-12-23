@@ -45,4 +45,9 @@ describe("", () => {
         const canPlace = canPlaceComputerShip(2, 1, 3, "vertical", placedShips);
         expect(canPlace).toBe(false);
     });
+
+    test("should return false if a ship goes out of bounds horizontally", () => {
+        const canPlace = canPlaceComputerShip(0, 8, 3, "horizontal", placedShips);
+        expect(canPlace).toBe(false);
+    });
 })
