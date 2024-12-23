@@ -20,4 +20,11 @@ describe("updateOrientation function with event listeners", () => {
         expect(verticalElement.style.backgroundColor).toBe("green");
         expect(horizontalElement.style.backgroundColor).toBe("white");
     });
+
+    test("should update currentOrientation and change background color to green for horizontal orientation", () => {
+        horizontalElement.click();
+        expect(currentOrientation).toBe("horizontal");
+        expect(horizontalElement.style.backgroundColor).toBe("green");
+        expect(verticalElement.style.backgroundColor).toBe("white");
+    });
 })
