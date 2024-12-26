@@ -53,4 +53,9 @@ describe("setComputerShips", () => {
             expect.objectContaining({ size: 2, coordinates: mockShips[1].coordinates })
         ]);
     });
+
+    test("should handle empty ships array gracefully", () => {
+        setComputerShips([]);
+        expect(computerGameboard.setShips).toHaveBeenCalledWith([]);
+    });
 });
