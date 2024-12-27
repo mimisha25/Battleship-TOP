@@ -87,4 +87,13 @@ describe("canPlaceShip", () => {
         const result = canPlaceShip(row, col, shipSize, orientation);
         expect(result).toBe(true);
     });
+
+    test("should return false if the ship is out of bounds and touches the edge vertically", () => {
+        const row = 8;
+        const col = 4;
+        const shipSize = 3;
+        const orientation = 'vertical';
+        const result = canPlaceShip(row, col, shipSize, orientation);
+        expect(result).toBe(false);
+    });
 });
