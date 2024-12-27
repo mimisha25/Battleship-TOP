@@ -79,7 +79,12 @@ describe("canPlaceShip", () => {
         expect(result).toBe(true);
     });
 
-    test("", () => {
-
+    test("should return true if the ship fits vertically and no cells are occupied", () => {
+        const row = 2;
+        const col = 3;
+        const shipSize = 3;
+        const orientation = 'vertical';
+        const result = canPlaceShip(row, col, shipSize, orientation);
+        expect(result).toBe(true);
     });
 });
