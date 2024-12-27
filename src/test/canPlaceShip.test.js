@@ -30,4 +30,17 @@ describe("canPlaceShip", () => {
         const result = canPlaceShip(row, col, shipSize, orientation);
         expect(result).toBe(false);
     });
+
+    test("should return false if ship is out of bounds vertically", () => {
+        const row = 8;
+        const col = 3;
+        const shipSize = 3;
+        const orientation = "vertical";
+        const result = canPlaceShip(row, col, shipSize, orientation);
+        expect(result).toBe(false);
+    });
+
+    test("", () => {
+
+    });
 });
