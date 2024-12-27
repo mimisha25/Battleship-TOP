@@ -54,4 +54,19 @@ describe("canPlaceShip", () => {
         const result = canPlaceShip(row, col, shipSize, orientation);
         expect(result).toBe(false);
     });
+
+    test("should return false if the ship overlaps with an already placed ship vertically", () => {
+        const row = 2;
+        const col = 2;
+        const shipSize = 3;
+        const orientation = 'vertical';
+        const occupiedCells = [
+            document.querySelector('[data-row="2"][data-col="2"]'),
+            document.querySelector('[data-row="3"][data-col="2"]'),
+            document.querySelector('[data-row="4"][data-col="2"]')
+        ];
+        occupiedCells.forEach(cell => cell.classList.add('ship-placement'));
+        const result = canPlaceShip(row, col, shipSize, orientation);
+        expect(result).toBe(false);
+    });
 });
