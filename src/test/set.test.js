@@ -44,7 +44,17 @@ describe("setPlayerShips", () => {
         expect(Ship.mock.results[1].value.coordinates).toEqual(["B1", "B2", "B3", "B4", "B5"])
     });
 
-    test("", () => {
-
+    test("should call setShips on the playerGameboard with the correct ships", () => {
+        const playerShips = [
+            { size: 3, coordinates: ['A1', 'A2', 'A3'] },
+            { size: 5, coordinates: ['B1', 'B2', 'B3', 'B4', 'B5'] }
+        ];
+        setPlayerShips(playerShips);
+        expect(playerGameboard.setShips).toHaveBeenCalledTimes(1);
+        const ships = playerGameboard.setShips.mock.calls[0][0];
+        expect(ships[0].size).toBe(3);
+        expect(ships[0].coordinates).toEqual(["A1", "A2", "A3"]);
+        expect(ships[1].size).toBe(5);
+        expect(ships[1].coordinates).toEqual(["B1", "B2", "B3", "B4", "B5"]);
     });
 })
