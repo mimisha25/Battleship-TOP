@@ -27,4 +27,14 @@ describe("afterDrop", () => {
         expect(setPlayerShips).toHaveBeenCalledTimes(1);
         expect(setPlayerShips).toHaveBeenCalledWith(playerShips);
     });
+
+    test("should not call setPlayerShips if playerShips length is not 5", () => {
+        const playerShips = [1, 2, 3];
+        afterDrop(playerShips);
+        expect(setPlayerShips).not.toHaveBeenCalled();
+        expect(document.querySelector('h3')).not.toBeNull();
+        expect(document.querySelector('#vertical')).not.toBeNull();
+        expect(document.querySelector('#horizontal')).not.toBeNull();
+        expect(document.querySelector('#message').textContent).toBe('');
+    });
 })
