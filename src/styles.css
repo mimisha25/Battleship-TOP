@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Playwrite+IE+Guides&family=Sixtyfour&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    background-color: rgb(40, 40, 46);
+    color: white;
+}
+
+h1 {
+    font-size: 4em;
+    font-family: "Lobster", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.section {
+    display: flex;
+    flex-direction: row;
+}
+
+.gameboard-container {
+    display: inline-block;
+    margin: 20px;
+    border: 1px solid #000;
+}
+
+.gameboard {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(10, 40px);
+    gap: 1px;
+    margin-top: 20px;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    background-color: lightgray;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 2rem;
+    text-align: center;
+    color: black;
+}
+
+
+.ship {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.ship-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.ship-cell {
+    width: 40px;
+    height: 40px;
+    background-color: green;
+    margin-right: 2px;
+    cursor: move;
+}
+
+.ship-cell.dragging {
+    opacity: 0.5;
+}
+
+.ship-placement {
+    background-color: green;
+}
+
+.dragging-ship {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: 1000;
+}
+
+.cell.computer-cell.ship-placement {
+    background-color: green;
+
+}
+
+.hit,
+.cell.computer-cell.ship-placement.hit {
+    background-color: red;
+}
+
+#horizontal {
+    background-color: green;
+}
