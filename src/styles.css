@@ -45,7 +45,7 @@ h1 {
     cursor: pointer;
     font-size: 2rem;
     text-align: center;
-    
+
     
 }
 
@@ -99,5 +99,13 @@ h1 {
 }
 
 #horizontal {
-    background-color: green;
+    background-color: rgb(240, 232, 67);
+  
+}
+
+#horizontal, #vertical{
+    color: rgb(23, 7, 242);
+    font-size: 20px;
+    border-radius: 10%;
+    
 }
