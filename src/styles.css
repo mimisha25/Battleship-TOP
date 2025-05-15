@@ -24,6 +24,8 @@ h1 {
     display: inline-block;
     margin: 20px;
     border: 1px solid #000;
+    border-radius: 10%;
+    background-color: rgb(8, 10, 95);
 }
 
 .gameboard {
@@ -32,6 +34,7 @@ h1 {
     grid-template-rows: repeat(10, 40px);
     gap: 1px;
     margin-top: 20px;
+
 }
 
 .cell {
@@ -42,13 +45,15 @@ h1 {
     cursor: pointer;
     font-size: 2rem;
     text-align: center;
-    color: black;
+    
+    
 }
 
 
 .ship {
     margin-top: 20px;
     margin-bottom: 10px;
+
 }
 
 .ship-row {
@@ -60,9 +65,10 @@ h1 {
 .ship-cell {
     width: 40px;
     height: 40px;
-    background-color: green;
+    background-color: rgb(49, 207, 49);
     margin-right: 2px;
     cursor: move;
+    border-radius: 20%;
 }
 
 .ship-cell.dragging {
@@ -71,6 +77,7 @@ h1 {
 
 .ship-placement {
     background-color: green;
+  
 }
 
 .dragging-ship {
@@ -78,6 +85,7 @@ h1 {
     pointer-events: none;
     opacity: 0.5;
     z-index: 1000;
+    color: red;
 }
 
 .cell.computer-cell.ship-placement {
