@@ -21,6 +21,10 @@ export class RealPlayer extends Player {
         if (opponent.gameboard.allShipsSunk()) {
             console.log("All ships are sunk!");
             message.textContent = "You win! All enemy ships are sunk";
-        } return result;
+        } 
+        setTimeout(()=>{
+            return result;
+        }, 2000)
+       
     }
 }
