@@ -7,6 +7,7 @@ export class RealPlayer extends Player {
         super(name, gameboard);
     }
     attack(opponent, x, y) {
+        setTimeout(()=>{
         if (x < 0 || x >= 10 || y < 0 || y >= 10) throw new Error("Coordinates out of bounds!");
         const result = super.attack(opponent, x, y);
         const cell = document.querySelector(`#computer-board [data-row="${x}"][data-col="${y}"]`);
@@ -22,9 +23,9 @@ export class RealPlayer extends Player {
             console.log("All ships are sunk!");
             message.textContent = "You win! All enemy ships are sunk";
         } 
-        setTimeout(()=>{
+        
             return result;
-        }, 2000)
+        }, 1000)
        
     }
 }
